@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
 <head>
     <meta charset="UTF-8">
     <meta name="keywords"
+<<<<<<< HEAD
+          content="FrogBid">
+    <meta name="description" content="FrogBid">
+    <meta property="og:site_name" content="FrogBid">
+    <meta property="og:url" content="https://heloshape.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="FrogBid">
+    <meta name='og:image' content='vCamp/images/logo/vCamp_02.png'>
+=======
           content="Digital marketing agency, Digital marketing company, Digital marketing services, sass, software company">
     <meta name='og:image' content='vCamp/images/assets/ogg.png'>
+>>>>>>> origin/main
     <!-- For IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- For Resposive Device -->
@@ -24,26 +32,20 @@
     <!-- Landing Page Style -->
     <link rel="stylesheet" type="text/css" href="style.css" media="all">
 
-
-    <!-- Fix Internet Explorer ______________________________________-->
-
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        let Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/658fedf70ff6374032ba8382/1hit3j4d7';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
 </head>
-
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    (function () {
-        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = 'https://embed.tawk.to/658fedf70ff6374032ba8382/1hit3j4d7';
-        s1.charset = 'UTF-8';
-        s1.setAttribute('crossorigin', '*');
-        s0.parentNode.insertBefore(s1, s0);
-    })();
-</script>
-<!--End of Tawk.to Script-->
-
-
 <body>
 <div class="main-page-wrapper landing-page">
 
@@ -105,11 +107,11 @@
                     <div class="collapse navbar-collapse dark-style" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="d-block d-lg-none">
-                                <div class="logo"><a href="#" target="_blank"><img src="vCamp/images/logo/vCamp_02.png"
+                                <div class="logo"><a href="#home" target="_blank"><img src="vCamp/images/logo/vCamp_02.png"
                                                                                    alt="" width="127"></a></div>
                             </li>
                             <li class="nav-item dropdown mega-dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                <a class="nav-link dropdown-toggle" href="#home" role="button" data-bs-toggle="dropdown"
                                    data-bs-auto-close="outside" aria-expanded="false">Home</a>
                             </li>
                             <li class="nav-item dropdown mega-dropdown">
@@ -118,16 +120,13 @@
                                    aria-expanded="false">About</a>
                             </li>
                             <li class="nav-item dropdown mega-dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                   data-bs-auto-close="outside" aria-expanded="false">Demos</a>
+                                <a class="nav-link dropdown-toggle" href="#demos">Demos</a>
                             </li>
                             <li class="nav-item dropdown mega-dropdown-md">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                   data-bs-auto-close="outside" aria-expanded="false">Services</a>
+                                <a class="nav-link" href="#services">Services</a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="vCamp/contactV1.html" role="button" data-bs-toggle="dropdown"
-                                   data-bs-auto-close="outside" aria-expanded="false">Contact</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="vCamp/contactV1.html" onclick="redirectToContact()">Contact</a>
                             </li>
                         </ul>
                         <div class="mobile-content d-block d-lg-none">
@@ -157,7 +156,7 @@
         Feature Banner
     ==============================================
     -->
-    <div class="landing-banner dark-bg">
+    <div class="landing-banner dark-bg" id="home">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 m-auto">
@@ -236,7 +235,7 @@
         Home Demo
     =====================================================
     -->
-    <div class="home-demo-section pt-150 lg-pt-120">
+    <div class="home-demo-section pt-150 lg-pt-120" id="demos">
         <div class="container">
             <div class="row">
                 <div class="col-xl-8 col-lg-7 col-md-9 m-auto">
@@ -408,7 +407,7 @@
         Responsive Feature
     =====================================================
     -->
-    <div class="responsive-feature dark-bg mt-150 pt-200 pb-200 lg-mt-50 lg-pt-120 lg-pb-100 sm-pt-100">
+    <div class="responsive-feature dark-bg mt-150 pt-200 pb-200 lg-mt-50 lg-pt-120 lg-pb-100 sm-pt-100" id="services">
         <div class="container">
             <div class="row">
                 <div class="col-xxl-5 col-lg-6 col-md-8 ms-auto" data-aos="fade-left">
@@ -699,11 +698,34 @@
         //Set plugin on cards
         $('.home-demo-section .img-meta').transformHeroes();
 
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Smooth scrolling for anchor links
+            const navLinks = document.querySelectorAll('nav a');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1); // Get the target ID
+                    const targetSection = document.getElementById(targetId);
+
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+
+        function redirectToContact() {
+            window.location.href = "vCamp/contactV1.html";
+            return false;
+        }
     </script>
 
     <!-- Theme js -->
     <script src="vCamp/js/theme.js"></script>
 </div> <!-- /.main-page-wrapper -->
 </body>
-
 </html>
